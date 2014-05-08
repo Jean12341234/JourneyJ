@@ -6,6 +6,8 @@ JourneyJ
  */
 package fuelpurchase;
 
+import java.util.Random;
+
 /**
  *
  * @author 041209329
@@ -14,13 +16,14 @@ public class Journey {
     
 	private static final int	SERVICE_KILOMETER_LIMIT	= 100;
 	private double				kilometers;
-
+        private double                            litres;
 	/**
 	 * Class constructor
 	 */
 	public Journey() {
 		this.kilometers = 0;
-	}
+                this.litres = 0;
+        }
 
 	/**
 	 * Appends the distance parameter to {@link #kilometers}
@@ -42,14 +45,19 @@ public class Journey {
 	 */
 	public int getTotalServices() {
 		return (int) Math.floor(kilometers / SERVICE_KILOMETER_LIMIT);
-	}
+        }
+       
+        
 
 	/**
 	 * 
-	 * @return {@link #kilometers}
+	 * @return {@link #kilometers #litres}
 	 */
 	public double getKilometers() {
 		return kilometers;
-	}
+        }
+        public double getFuel() {
+                return (new Random().nextInt(100) * 100 / kilometers);
+        }
 
 }
